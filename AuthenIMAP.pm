@@ -9,7 +9,7 @@
 # IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
 # WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 #
-# $Id: AuthenIMAP.pm,v 1.3 2002/05/01 13:20:30 rowan Exp $
+# $Id: AuthenIMAP.pm,v 1.5 2002/06/14 01:53:46 rowan Exp $
 ##############################################################################
 
 package Apache::AuthenIMAP;
@@ -17,9 +17,9 @@ package Apache::AuthenIMAP;
 use strict;
 use Apache::Constants qw/:common/;
 use vars qw/%ENV/;
-use Mail::IMAP;
+use Mail::IMAPClient;
 
-$Apache::AuthenIMAP::VERSION = '0.02';
+$Apache::AuthenIMAP::VERSION = '0.03';
 my $self="Apache::AuthenIMAP";
 
 # Authentication checks agains IMAP server

@@ -1,4 +1,4 @@
-# $Id: Changes,v 1.3 2002/05/01 13:20:41 rowan Exp $
+# $Id: Changes,v 1.4 2002/06/14 01:47:12 rowan Exp $
 
 Revision history for Perl extension Apache::AuthenIMAP
 
@@ -7,3 +7,6 @@ Revision history for Perl extension Apache::AuthenIMAP
 
 0.02  Wed May  1 07:45:39 EST 2002
 	- added password existence check code from Mario van den Heuvel
+
+0.03  Thu Jun 13 20:45:00 EST 2002
+	- added Apache as a prereq

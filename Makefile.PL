@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.3 2002/05/01 13:20:54 rowan Exp $
+# $Id: Makefile.PL,v 1.4 2002/06/14 01:45:07 rowan Exp $
 
 use ExtUtils::MakeMaker;
 
@@ -13,6 +13,6 @@ WriteMakefile(
 	'VERSION_FROM'	=> 'AuthenIMAP.pm', 
 	'AUTHOR'	=> 'John "Rowan" Littell <littejo@earlham.edu>',
 	'ABSTRACT'	=> 'Perform Basic User Authentication against an IMAP server',
-	'PREREQ_PM'	=> { Mail::IMAPClient => '2.1.4' },
+	'PREREQ_PM'	=> { 'Apache' => '1.11', 'Mail::IMAPClient' => '2.1.4' },
 	'dist'		=> { COMPRESS => 'gzip', SUFFIX => 'gz', },
 );
