@@ -9,7 +9,7 @@
 # IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
 # WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 #
-# $Id: AuthenIMAP.pm,v 1.1 2002/01/17 14:36:18 rowan Exp $
+# $Id: AuthenIMAP.pm,v 1.3 2002/05/01 13:20:30 rowan Exp $
 ##############################################################################
 
 package Apache::AuthenIMAP;
@@ -17,9 +17,9 @@ package Apache::AuthenIMAP;
 use strict;
 use Apache::Constants qw/:common/;
 use vars qw/%ENV/;
-use Mail::IMAPClient;
+use Mail::IMAP;
 
-$Apache::AuthenIMAP::VERSION = '0.01';
+$Apache::AuthenIMAP::VERSION = '0.02';
 my $self="Apache::AuthenIMAP";
 
 # Authentication checks agains IMAP server
@@ -64,6 +64,11 @@ sub handler {
     unless($imap_username){
 	$r->note_basic_auth_failure;
 	$r->log_reason($self . ': no username supplied', $r->uri);
+	return AUTH_REQUIRED;
+    }
+    unless($imap_password){
+	$r->note_basic_auth_failure;
+	$r->log_reason($self . ': no password supplied', $r->uri);
 	return AUTH_REQUIRED;
     }
 
@@ -148,7 +153,8 @@ __END__
 
 =head1 NAME
 
-Apache::AuthenIMAP - Perform Basic User Authentication against an IMAP server
+Apache::AuthenIMAP - Perform Basic User Authentication against an
+IMAP server
 
 =head1 SYNOPSIS
 
@@ -216,7 +222,8 @@ unspecified, the default IMAP port, 143, is used.
 
 John "Rowan" Littell (littejo at earlham dot edu), scarfed the basic
 skeleton of this module from the Apache::AuthenN2 module by Valerie
-Delane.
+Delane.  Mario van den Heuvel (m.heuvel at sendrata dot com) supplied
+a password existence check fix.
 
 =head1 COPYRIGHT
 
